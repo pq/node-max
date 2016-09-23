@@ -1,0 +1,41 @@
+////////////////////////////////////////////////////////////////////////////////
+// Setup.
+////////////////////////////////////////////////////////////////////////////////
+
+// Import module script(s) here.
+var max = require('./max');
+
+// Ensure that max functions are defined.
+defineMaxFunctions();
+
+////////////////////////////////////////////////////////////////////////////////
+// Sandbox.  Test drive here!
+////////////////////////////////////////////////////////////////////////////////
+
+var buffer = [ 0, 1, 2, 3 ];
+post(buffer); // post works!
+
+max.zero(buffer);
+outlet(0, buffer); // and outlet too!
+
+
+//Done!
+process.exit();
+
+////////////////////////////////////////////////////////////////////////////////
+// Functions.
+////////////////////////////////////////////////////////////////////////////////
+
+// Conditionally define Max functions.
+function defineMaxFunctions() {
+    if (typeof post == 'undefined' || !post) {
+        post = function (message) {
+            console.log(message);
+        }
+    }
+    if (typeof outlet == 'undefined' || !outlet) {
+        outlet = function (index, message) {
+            console.log("Outlet [" + index + "]: " + message);
+        }
+    }
+}
