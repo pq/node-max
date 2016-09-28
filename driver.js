@@ -3,19 +3,19 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 // Import module script(s) here.
-var max = require('./max');
+var js = require('./max');
 
-// Ensure that max functions are defined.
-defineMaxFunctions();
+// Ensure that max symbols are defined.
+defineMaxSymbols();
 
 ////////////////////////////////////////////////////////////////////////////////
 // Sandbox.  Test drive here!
 ////////////////////////////////////////////////////////////////////////////////
 
-var buffer = [ 0, 1, 2, 3 ];
+var buffer = [0, 1, 2, 3];
 post(buffer); // post works!
 
-max.zero(buffer);
+js.zero(buffer);
 outlet(0, buffer); // and outlet too!
 
 
@@ -26,16 +26,16 @@ process.exit();
 // Functions.
 ////////////////////////////////////////////////////////////////////////////////
 
-// Conditionally define Max functions.
-function defineMaxFunctions() {
-    if (typeof post == 'undefined' || !post) {
-        post = function (message) {
-            console.log(message);
-        }
-    }
-    if (typeof outlet == 'undefined' || !outlet) {
-        outlet = function (index, message) {
-            console.log("Outlet [" + index + "]: " + message);
-        }
-    }
+// Conditionally define Max symbols.
+function defineMaxSymbols() {
+  if (typeof post === 'undefined' || !post) {
+    post = function(message) {
+      console.log(message);
+    };
+  }
+  if (typeof outlet === 'undefined' || !outlet) {
+    outlet = function(index, message) {
+      console.log("Outlet [" + index + "]: " + message);
+    };
+  }
 }

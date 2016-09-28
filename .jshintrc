@@ -1,0 +1,18 @@
+{
+  "boss": true,
+  "node": true,
+  "eqeqeq": true,
+  "newcap": false,
+  "undef": true,
+  // Max JS globals
+  // https://docs.cycling74.com/max7/vignettes/jsglobal
+  "globals": {
+    "autowatch": true,
+    "inlets": true,
+    "outlet": true,
+    "outlets": true,
+    "post": true
+  },
+  "onecase": true,
+  "lastsemic": true
+}
