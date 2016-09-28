@@ -6,23 +6,21 @@ outlets = 1;
 autowatch = 1;
 
 // Export functions for test.
-module.exports = {
-  bang: bang,
-  zero: zero
-};
+exports.bang = bang;
+exports.zero = zero;
 
 // Sample source...
 
 var buffer = Array.apply(null, Array(64)).map(Number.prototype.valueOf, 0);
 
 function zero(buffer) {
-    var len = buffer.length;
-    while (len--) {
-        buffer[len] = 0;
-    }
+  var len = buffer.length;
+  while (len--) {
+    buffer[len] = 0;
+  }
 }
 
 function bang() {
-    post("bang!"); // Note that this will get bound to the console.
-    outlet(0, buffer); // And this too :)
+  post("bang!"); // Note that this will get bound to the console.
+  outlet(0, buffer); // And this too :)
 }
